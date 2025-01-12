@@ -7,7 +7,116 @@
   <meta name="description" content="Portfolio of Vishal Kumar Bhakt, aspiring full-stack developer specializing in Python, Django, and web technologies.">
   <title>Vishal Kumar Bhakt | Full-Stack Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHqT2TxlKSlSG6yKUePSeTA3zu6iwRqZ/7D5pT4zLfU9BFam6s7xzP5oPiR1jL8IETa8owow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    .container {
+      width: 85%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      color: #fff;
+      background: #ff7e5f;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #feb47b;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .skills-grid, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill, .project {
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: center;
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill:hover, .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill i, .project h3 {
+      color: #2575fc;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info {
+      text-align: center;
+    }
+
+    .social-links a {
+      margin: 0 0.5rem;
+      color: #2575fc;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #6a11cb;
+    }
+
+    footer {
+      text-align: center;
+      background: #333;
+      color: #fff;
+      padding: 1.5rem 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -36,14 +145,14 @@
     <div class="container">
       <h2>Technical Skills</h2>
       <div class="skills-grid">
-        <div class="skill"><i class="fab fa-html5"></i> HTML</div>
-        <div class="skill"><i class="fab fa-css3-alt"></i> CSS</div>
-        <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
-        <div class="skill"><i class="fab fa-react"></i> React</div>
-        <div class="skill"><i class="fab fa-python"></i> Python</div>
-        <div class="skill"><i class="fas fa-database"></i> MySQL</div>
-        <div class="skill"><i class="fab fa-node-js"></i> Node.js</div>
-        <div class="skill"><i class="fas fa-cloud"></i> Azure</div>
+        <div class="skill"><i class="fab fa-html5 fa-3x"></i><br>HTML</div>
+        <div class="skill"><i class="fab fa-css3-alt fa-3x"></i><br>CSS</div>
+        <div class="skill"><i class="fab fa-js fa-3x"></i><br>JavaScript</div>
+        <div class="skill"><i class="fab fa-react fa-3x"></i><br>React</div>
+        <div class="skill"><i class="fab fa-python fa-3x"></i><br>Python</div>
+        <div class="skill"><i class="fas fa-database fa-3x"></i><br>MySQL</div>
+        <div class="skill"><i class="fab fa-node-js fa-3x"></i><br>Node.js</div>
+        <div class="skill"><i class="fas fa-cloud fa-3x"></i><br>Azure</div>
       </div>
     </div>
   </section>
@@ -96,81 +205,6 @@
       <p>&copy; 2025 Vishal Kumar Bhakt. All rights reserved.</p>
     </div>
   </footer>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-
-    .container {
-      width: 80%;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .hero {
-      background: #333;
-      color: #fff;
-      padding: 2rem 0;
-      text-align: center;
-    }
-
-    .hero h1 {
-      margin: 0;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      color: #fff;
-      background: #007bff;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .section {
-      padding: 2rem 0;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .skills-grid, .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .skill, .project {
-      padding: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      text-align: center;
-    }
-
-    .contact-info {
-      text-align: center;
-    }
-
-    .social-links a {
-      margin: 0 0.5rem;
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    footer {
-      text-align: center;
-      background: #333;
-      color: #fff;
-      padding: 1rem 0;
-    }
-  </style>
 </body>
 
 </html>
