@@ -6,180 +6,497 @@
     <title>Vishal Kumar Bhakt - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
             --primary-color: #3498db;
+            --primary-dark: #2980b9;
             --secondary-color: #2c3e50;
             --accent-color: #e74c3c;
             --light-color: #ecf0f1;
             --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
         }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
             background-color: #f8f9fa;
+            overflow-x: hidden;
         }
         
+        /* Animated Gradient Background */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Navigation */
         .navbar {
-            background-color: var(--secondary-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(44, 62, 80, 0.9);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(44, 62, 80, 0.95);
+            padding: 10px 0;
         }
         
         .navbar-brand {
             font-weight: 700;
             color: white;
+            font-size: 1.5rem;
         }
         
         .nav-link {
             color: white !important;
             font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
         }
         
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
             color: white;
-            padding: 5rem 0;
-            margin-bottom: 2rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            animation: zoomInOut 20s infinite alternate;
+        }
+        
+        @keyframes zoomInOut {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
         }
         
         .hero h1 {
             font-weight: 700;
             margin-bottom: 1rem;
+            font-size: 3.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             opacity: 0.9;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            transition: all 0.5s ease;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+            position: relative;
         }
         
         .section-title {
             color: var(--secondary-color);
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             position: relative;
-            padding-bottom: 0.5rem;
+            display: inline-block;
+            font-size: 2.5rem;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
         
+        .section-subtitle {
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Cards */
         .card {
             border: none;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+            background: white;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
         }
         
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .card:hover .card-title,
+        .card:hover .text-muted,
+        .card:hover .skill-badge {
+            color: white !important;
+        }
+        
+        .card:hover .skill-badge {
+            background-color: rgba(255, 255, 255, 0.2);
         }
         
         .card-header {
             background-color: white;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             font-weight: 600;
+            transition: all 0.4s ease;
         }
         
+        .card:hover .card-header {
+            background-color: transparent;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Skill Badges */
         .skill-badge {
             background-color: var(--light-color);
             color: var(--dark-color);
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
             margin: 0.3rem;
             display: inline-block;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
         }
         
-        .contact-info {
-            list-style: none;
-            padding: 0;
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .contact-info li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-info i {
-            color: var(--primary-color);
-            margin-right: 0.5rem;
-            width: 20px;
-            text-align: center;
-        }
-        
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        .social-links a {
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-        
+        /* Timeline */
         .timeline {
             position: relative;
-            padding-left: 30px;
+            padding-left: 50px;
         }
         
         .timeline::before {
             content: '';
             position: absolute;
-            left: 10px;
+            left: 20px;
             top: 0;
             bottom: 0;
-            width: 2px;
-            background-color: var(--primary-color);
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
+            border-radius: 3px;
         }
         
         .timeline-item {
             position: relative;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -30px;
+            left: -40px;
             top: 5px;
-            width: 12px;
-            height: 12px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
+            background: white;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2);
+        }
+        
+        /* About Image */
+        .about-image {
+            border-radius: 15px;
+            height: 400px;
+            object-fit: cover;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: all 0.5s ease;
+            border: 10px solid white;
+        }
+        
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Buttons */
+        .btn-primary {
             background-color: var(--primary-color);
-            border: 2px solid white;
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        .project-card {
-            height: 100%;
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
         }
         
-        .project-card .card-footer {
-            background-color: white;
-            border-top: none;
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-outline-light {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-outline-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Contact Form */
+        .form-control {
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 500px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-image {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Vishal Kumar Bhakt</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -211,56 +528,68 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container text-center">
-            <h1>Vishal Kumar Bhakt</h1>
-            <p class="lead">Full-Stack Developer | Python & Django Expert | Web Technologies Enthusiast</p>
-            <div class="mt-4">
-                <a href="https://github.com/vishalbhakt/Portfolio/blob/main/Vishal_resume%20(1).pdf" class="btn btn-light btn-lg me-2" target="_blank">
+    <section class="hero gradient-bg">
+        <img src="https://github.com/vishalbhakt/Portfolio/blob/main/IMG-20250426-WA0101.jpg?raw=true" alt="Background" class="hero-bg">
+        <div class="container hero-content">
+            <img src="https://github.com/vishalbhakt/Portfolio/blob/main/IMG-20250426-WA0101.jpg?raw=true" alt="Vishal Kumar Bhakt" class="profile-image">
+            <h1 data-aos="fade-up" data-aos-delay="100">Vishal Kumar Bhakt</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="200">Full-Stack Developer | Python & Django Expert | Web Technologies Enthusiast</p>
+            <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://github.com/vishalbhakt/Portfolio/blob/main/Vishal_resume%20(1).pdf" class="btn btn-light btn-lg me-3" target="_blank">
                     <i class="fas fa-download me-2"></i>Download Resume
                 </a>
                 <a href="#contact" class="btn btn-outline-light btn-lg">Contact Me</a>
             </div>
         </div>
+        <a href="#about" class="scroll-down" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-5">
+    <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <p class="lead">Passionate full-stack developer skilled in Python, Django, and modern web technologies.</p>
-                    <p>Adept at building clean, scalable applications and solving real-world problems with code. Strong foundation in backend systems, web scraping, and cloud tools like Azure Document Intelligence. Seeking opportunities to grow in AI and data-driven development.</p>
-                    <div class="mt-4">
-                        <h5>Personal Profile</h5>
-                        <ul class="list-unstyled">
-                            <li><strong>Nationality:</strong> Indian</li>
-                            <li><strong>Languages:</strong> English, Hindi</li>
-                        </ul>
-                    </div>
+            <h2 class="section-title text-center" data-aos="fade-up">About Me</h2>
+            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">Get to know me better</p>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <img src="https://github.com/vishalbhakt/Portfolio/blob/main/IMG_20250430_101317.jpg?raw=true" alt="Vishal working" class="about-image">
                 </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Interests</h5>
-                            <div class="d-flex flex-wrap">
-                                <span class="skill-badge"><i class="fas fa-paint-brush me-2"></i>Sketching & Painting</span>
-                                <span class="skill-badge"><i class="fas fa-book me-2"></i>Reading Clubs</span>
-                                <span class="skill-badge"><i class="fas fa-users me-2"></i>Tech Communities</span>
-                                <span class="skill-badge"><i class="fas fa-music me-2"></i>Music Festivals</span>
-                                <span class="skill-badge"><i class="fas fa-globe me-2"></i>Cultural Events</span>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="mb-4">Passionate Full-Stack Developer</h3>
+                    <p>Adept at building clean, scalable applications and solving real-world problems with code. Strong foundation in backend systems, web scraping, and cloud tools like Azure Document Intelligence. Seeking opportunities to grow in AI and data-driven development.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <div class="d-flex mb-4">
+                                <div class="me-4">
+                                    <i class="fas fa-user-tie fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Personal Profile</h5>
+                                    <ul class="list-unstyled">
+                                        <li><strong>Nationality:</strong> Indian</li>
+                                        <li><strong>Languages:</strong> English, Hindi</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Soft Skills</h5>
-                            <ul>
-                                <li>Exceptional problem-solving and analytical skills</li>
-                                <li>Strong team collaboration and communication</li>
-                                <li>Flexible, creative, and solution-oriented thinker</li>
-                            </ul>
+                        <div class="col-md-6">
+                            <div class="d-flex mb-4">
+                                <div class="me-4">
+                                    <i class="fas fa-heart fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Interests</h5>
+                                    <div class="d-flex flex-wrap">
+                                        <span class="skill-badge me-2 mb-2"><i class="fas fa-paint-brush me-1"></i>Art</span>
+                                        <span class="skill-badge me-2 mb-2"><i class="fas fa-book me-1"></i>Reading</span>
+                                        <span class="skill-badge me-2 mb-2"><i class="fas fa-users me-1"></i>Tech</span>
+                                        <span class="skill-badge me-2 mb-2"><i class="fas fa-music me-1"></i>Music</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -269,14 +598,16 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-5 bg-light">
+    <section id="experience" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
+            <h2 class="section-title text-center" data-aos="fade-up">Experience</h2>
+            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">My professional journey</p>
+            
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up">
                     <div class="card">
                         <div class="card-header bg-white">
-                            <h5 class="mb-0">Software Development Intern</h5>
+                            <h4 class="mb-0">Software Development Intern</h4>
                             <p class="text-muted mb-0">Essentia SoftServ, Noida | Feb 2025 – Present</p>
                         </div>
                         <div class="card-body">
@@ -288,10 +619,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
                         <div class="card-header bg-white">
-                            <h5 class="mb-0">Full-Stack Developer Apprentice</h5>
+                            <h4 class="mb-0">Full-Stack Developer Apprentice</h4>
                             <p class="text-muted mb-0">CETPA Infotech Pvt. Ltd., Noida | Aug 2023 – Apr 2024</p>
                         </div>
                         <div class="card-body">
@@ -307,14 +638,16 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5">
+    <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title text-center" data-aos="fade-up">Technical Skills</h2>
+            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">What I bring to the table</p>
+            
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
                         <div class="card-header">
-                            <h5>Languages</h5>
+                            <h5><i class="fas fa-code me-2"></i>Languages</h5>
                         </div>
                         <div class="card-body">
                             <span class="skill-badge">Python</span>
@@ -325,10 +658,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100">
                         <div class="card-header">
-                            <h5>Frameworks & Technologies</h5>
+                            <h5><i class="fas fa-cubes me-2"></i>Frameworks</h5>
                         </div>
                         <div class="card-body">
                             <span class="skill-badge">Django</span>
@@ -341,10 +674,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100">
                         <div class="card-header">
-                            <h5>Tools & Platforms</h5>
+                            <h5><i class="fas fa-tools me-2"></i>Tools & Platforms</h5>
                         </div>
                         <div class="card-body">
                             <span class="skill-badge">SQL/MySQL</span>
@@ -362,72 +695,92 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-light">
+    <section id="projects" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title text-center" data-aos="fade-up">Projects</h2>
+            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">Some of my recent work</p>
+            
             <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card project-card">
-                        <div class="card-header">
-                            <h5>FriendlyParenting.in</h5>
-                        </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card project-card h-100">
                         <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                    <i class="fas fa-laptop-code text-primary fa-lg"></i>
+                                </div>
+                                <h5 class="mb-0">FriendlyParenting.in</h5>
+                            </div>
                             <p>Built a course enrollment and counseling platform using React and Django.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Technologies: React, Django</small>
+                            <div class="mt-auto">
+                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">React</span>
+                                <span class="badge bg-primary bg-opacity-10 text-primary">Django</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card project-card">
-                        <div class="card-header">
-                            <h5>JAM (Jobs at Mail)</h5>
-                        </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card project-card h-100">
                         <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                    <i class="fas fa-briefcase text-primary fa-lg"></i>
+                                </div>
+                                <h5 class="mb-0">JAM (Jobs at Mail)</h5>
+                            </div>
                             <p>Interactive job portal with intelligent filtering built with Django and React.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Technologies: Django, React</small>
+                            <div class="mt-auto">
+                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">Django</span>
+                                <span class="badge bg-primary bg-opacity-10 text-primary">React</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card project-card">
-                        <div class="card-header">
-                            <h5>Blog Post CMS</h5>
-                        </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card project-card h-100">
                         <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                    <i class="fas fa-blog text-primary fa-lg"></i>
+                                </div>
+                                <h5 class="mb-0">Blog Post CMS</h5>
+                            </div>
                             <p>Developed CMS with role-based access control.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">GitHub Project</small>
+                            <div class="mt-auto">
+                                <span class="badge bg-primary bg-opacity-10 text-primary">GitHub Project</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card project-card">
-                        <div class="card-header">
-                            <h5>Attendance Management System</h5>
-                        </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card project-card h-100">
                         <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                    <i class="fas fa-clipboard-check text-primary fa-lg"></i>
+                                </div>
+                                <h5 class="mb-0">Attendance Management System</h5>
+                            </div>
                             <p>Created attendance tracking system using Django and SQLite.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Technologies: Django, SQLite</small>
+                            <div class="mt-auto">
+                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">Django</span>
+                                <span class="badge bg-primary bg-opacity-10 text-primary">SQLite</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card project-card">
-                        <div class="card-header">
-                            <h5>Social Media Post Scheduler</h5>
-                        </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card project-card h-100">
                         <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                    <i class="fas fa-share-alt text-primary fa-lg"></i>
+                                </div>
+                                <h5 class="mb-0">Social Media Post Scheduler</h5>
+                            </div>
                             <p>Automated social media post scheduling with YouTube API integration.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">API Integration Project</small>
+                            <div class="mt-auto">
+                                <span class="badge bg-primary bg-opacity-10 text-primary">API Integration</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -436,14 +789,16 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-5">
+    <section id="education" class="section">
         <div class="container">
-            <h2 class="section-title">Education</h2>
+            <h2 class="section-title text-center" data-aos="fade-up">Education</h2>
+            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">My academic background</p>
+            
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
                         <div class="card-header">
-                            <h5>Bachelor of Arts</h5>
+                            <h5><i class="fas fa-graduation-cap me-2"></i>Bachelor of Arts</h5>
                             <p class="text-muted mb-0">Maharaja Suhel Dev State University, Azamgarh</p>
                         </div>
                         <div class="card-body">
@@ -451,10 +806,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100">
                         <div class="card-header">
-                            <h5>Diploma in Computer Science & Engineering</h5>
+                            <h5><i class="fas fa-certificate me-2"></i>Diploma in CSE</h5>
                             <p class="text-muted mb-0">MMIT Bansi, Siddharth Nagar</p>
                         </div>
                         <div class="card-body">
@@ -462,10 +817,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100">
                         <div class="card-header">
-                            <h5>Senior Secondary (12th)</h5>
+                            <h5><i class="fas fa-school me-2"></i>Senior Secondary (12th)</h5>
                             <p class="text-muted mb-0">SBIC Sohanpur, Deoria (UP Board)</p>
                         </div>
                         <div class="card-body">
@@ -478,55 +833,98 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title text-center" data-aos="fade-up">Get In Touch</h2>
+            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">Let's work together</p>
+            
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Contact Information</h5>
-                            <ul class="contact-info">
-                                <li>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <strong>Location:</strong> New Delhi, Delhi
+                            <h3 class="mb-4">Contact Information</h3>
+                            <ul class="contact-info list-unstyled">
+                                <li class="mb-4">
+                                    <div class="d-flex">
+                                        <div class="me-4">
+                                            <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Location</h5>
+                                            <p class="text-muted mb-0">New Delhi, Delhi</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="d-flex">
+                                        <div class="me-4">
+                                            <i class="fas fa-phone fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Phone</h5>
+                                            <p class="text-muted mb-0">+91 7565974787</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="d-flex">
+                                        <div class="me-4">
+                                            <i class="fas fa-envelope fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5>Email</h5>
+                                            <p class="text-muted mb-0">wishalkush9119@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mb-4">
+                                    <div class="d-flex">
+                                        <div class="me-4">
+                                            <i class="fab fa-linkedin fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5>LinkedIn</h5>
+                                            <p class="text-muted mb-0">linkedin.com/in/vishal-kumar-bhakt</p>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    <i class="fas fa-phone"></i>
-                                    <strong>Phone:</strong> +91 7565974787
-                                </li>
-                                <li>
-                                    <i class="fas fa-envelope"></i>
-                                    <strong>Email:</strong> wishalkush9119@gmail.com
-                                </li>
-                                <li>
-                                    <i class="fab fa-linkedin"></i>
-                                    <strong>LinkedIn:</strong> linkedin.com/in/vishal-kumar-bhakt
-                                </li>
-                                <li>
-                                    <i class="fab fa-github"></i>
-                                    <strong>GitHub:</strong> github.com/vishalbhakt
+                                    <div class="d-flex">
+                                        <div class="me-4">
+                                            <i class="fab fa-github fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5>GitHub</h5>
+                                            <p class="text-muted mb-0">github.com/vishalbhakt</p>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Send Me a Message</h5>
+                            <h3 class="mb-4">Send Me a Message</h3>
                             <form>
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="name" required>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" required>
+                                <div class="mb-4">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" required>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-4">
                                     <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send Message</button>
                             </form>
@@ -540,7 +938,7 @@
     <!-- Footer -->
     <footer class="text-center">
         <div class="container">
-            <div class="social-links mb-3">
+            <div class="social-links mb-4">
                 <a href="https://linkedin.com/in/vishal-kumar-bhakt" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/vishalbhakt" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="mailto:wishalkush9119@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -550,17 +948,59 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Smooth scrolling for anchor links
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for all links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
+        
+        // Form submission (placeholder)
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Form submission would be handled here in a real implementation.');
+                form.reset();
+            });
+        }
     </script>
 </body>
 </html>
