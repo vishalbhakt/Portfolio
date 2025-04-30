@@ -1,210 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Vishal Kumar Bhakt, aspiring full-stack developer specializing in Python, Django, and web technologies.">
-  <title>Vishal Kumar Bhakt | Full-Stack Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHqT2TxlKSlSG6yKUePSeTA3zu6iwRqZ/7D5pT4zLfU9BFam6s7xzP5oPiR1jL8IETa8owow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: #333;
-      background: #f9f9f9;
-    }
-
-    .container {
-      width: 85%;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: #fff;
-      padding: 4rem 0;
-      text-align: center;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: 3rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin: 1rem 0;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      color: #fff;
-      background: #ff7e5f;
-      border: none;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-
-    .btn-primary:hover {
-      background: #feb47b;
-    }
-
-    .section {
-      padding: 4rem 0;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #333;
-    }
-
-    .skills-grid, .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill, .project {
-      padding: 1.5rem;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      text-align: center;
-      background: #fff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .skill:hover, .project:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .skill i, .project h3 {
-      color: #2575fc;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-info {
-      text-align: center;
-    }
-
-    .social-links a {
-      margin: 0 0.5rem;
-      color: #2575fc;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: #6a11cb;
-    }
-
-    footer {
-      text-align: center;
-      background: #333;
-      color: #fff;
-      padding: 1.5rem 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal Kumar Bhakt - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+        }
+        
+        .skill-badge {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin: 0.3rem;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .contact-info li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 2px solid white;
+        }
+        
+        .project-card {
+            height: 100%;
+        }
+        
+        .project-card .card-footer {
+            background-color: white;
+            border-top: none;
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Header Section -->
-  <header class="hero">
-    <div class="container">
-      <h1>Vishal Kumar Bhakt</h1>
-      <p>Full-Stack Developer | Python | Django | React</p>
-      <a href="#contact" class="btn-primary">Contact Me</a>
-    </div>
-  </header>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        I am an aspiring full-stack developer with expertise in Python, Django, and web technologies. I specialize in building
-        responsive web applications, handling large datasets, and leveraging cloud services to create AI-driven solutions. I am passionate about delivering impactful user experiences and continuously enhancing my skills.
-      </p>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill"><i class="fab fa-html5 fa-3x"></i><br>HTML</div>
-        <div class="skill"><i class="fab fa-css3-alt fa-3x"></i><br>CSS</div>
-        <div class="skill"><i class="fab fa-js fa-3x"></i><br>JavaScript</div>
-        <div class="skill"><i class="fab fa-react fa-3x"></i><br>React</div>
-        <div class="skill"><i class="fab fa-python fa-3x"></i><br>Python</div>
-        <div class="skill"><i class="fas fa-database fa-3x"></i><br>MySQL</div>
-        <div class="skill"><i class="fab fa-node-js fa-3x"></i><br>Node.js</div>
-        <div class="skill"><i class="fas fa-cloud fa-3x"></i><br>Azure</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project">
-          <h3>FriendlyParenting.in</h3>
-          <p>Designed and maintained a responsive website for course registration and counseling bookings using React and Django.</p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Vishal Kumar Bhakt</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="project">
-          <h3>Feedback Form</h3>
-          <p>Built a Django-based application for feedback collection with secure database integration and robust validation.</p>
-        </div>
-        <div class="project">
-          <h3>JAM (Jobs at Mail)</h3>
-          <p>Developed a job portal using Django and React with job filtering, application management, and admin panel features.</p>
-        </div>
-        <div class="project">
-          <h3>Attendance Management System</h3>
-          <p>Created a role-based attendance system with automated tracking and report generation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Let's work together! Reach out to me through any of the platforms below.</p>
-      <div class="contact-info">
-        <p><i class="fas fa-phone"></i> +91 7565974787</p>
-        <p><i class="fas fa-envelope"></i> vishalkush9119@gmail.com</p>
-        <p><i class="fas fa-map-marker-alt"></i> New Delhi, Delhi</p>
-        <div class="social-links">
-          <a href="https://linkedin.com/in/vishal-kumar-bhakt" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/vishalbhakt" target="_blank"><i class="fab fa-github"></i></a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>Vishal Kumar Bhakt</h1>
+            <p class="lead">Full-Stack Developer | Python & Django Expert | Web Technologies Enthusiast</p>
+            <div class="mt-4">
+                <a href="https://github.com/vishalbhakt/Portfolio/blob/main/Vishal_resume%20(1).pdf" class="btn btn-light btn-lg me-2" target="_blank">
+                    <i class="fas fa-download me-2"></i>Download Resume
+                </a>
+                <a href="#contact" class="btn btn-outline-light btn-lg">Contact Me</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer Section -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Vishal Kumar Bhakt. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="lead">Passionate full-stack developer skilled in Python, Django, and modern web technologies.</p>
+                    <p>Adept at building clean, scalable applications and solving real-world problems with code. Strong foundation in backend systems, web scraping, and cloud tools like Azure Document Intelligence. Seeking opportunities to grow in AI and data-driven development.</p>
+                    <div class="mt-4">
+                        <h5>Personal Profile</h5>
+                        <ul class="list-unstyled">
+                            <li><strong>Nationality:</strong> Indian</li>
+                            <li><strong>Languages:</strong> English, Hindi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Interests</h5>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-badge"><i class="fas fa-paint-brush me-2"></i>Sketching & Painting</span>
+                                <span class="skill-badge"><i class="fas fa-book me-2"></i>Reading Clubs</span>
+                                <span class="skill-badge"><i class="fas fa-users me-2"></i>Tech Communities</span>
+                                <span class="skill-badge"><i class="fas fa-music me-2"></i>Music Festivals</span>
+                                <span class="skill-badge"><i class="fas fa-globe me-2"></i>Cultural Events</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Soft Skills</h5>
+                            <ul>
+                                <li>Exceptional problem-solving and analytical skills</li>
+                                <li>Strong team collaboration and communication</li>
+                                <li>Flexible, creative, and solution-oriented thinker</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="card">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0">Software Development Intern</h5>
+                            <p class="text-muted mb-0">Essentia SoftServ, Noida | Feb 2025 – Present</p>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Assisting in backend development for enterprise-level live projects</li>
+                                <li>Integrating APIs for seamless data flow across systems</li>
+                                <li>Optimizing application performance and writing scalable code</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="card">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0">Full-Stack Developer Apprentice</h5>
+                            <p class="text-muted mb-0">CETPA Infotech Pvt. Ltd., Noida | Aug 2023 – Apr 2024</p>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Built full-stack web applications using Django and MERN stack</li>
+                                <li>Participated in end-to-end development from frontend to backend</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Languages</h5>
+                        </div>
+                        <div class="card-body">
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">C</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">HTML</span>
+                            <span class="skill-badge">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Frameworks & Technologies</h5>
+                        </div>
+                        <div class="card-body">
+                            <span class="skill-badge">Django</span>
+                            <span class="skill-badge">MERN Stack</span>
+                            <span class="skill-badge">Flask</span>
+                            <span class="skill-badge">React Native</span>
+                            <span class="skill-badge">Bootstrap</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Tools & Platforms</h5>
+                        </div>
+                        <div class="card-body">
+                            <span class="skill-badge">SQL/MySQL</span>
+                            <span class="skill-badge">MongoDB</span>
+                            <span class="skill-badge">Postgres</span>
+                            <span class="skill-badge">Git/GitHub</span>
+                            <span class="skill-badge">AWS</span>
+                            <span class="skill-badge">PythonAnywhere</span>
+                            <span class="skill-badge">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <div class="card-header">
+                            <h5>FriendlyParenting.in</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Built a course enrollment and counseling platform using React and Django.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Technologies: React, Django</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <div class="card-header">
+                            <h5>JAM (Jobs at Mail)</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Interactive job portal with intelligent filtering built with Django and React.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Technologies: Django, React</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <div class="card-header">
+                            <h5>Blog Post CMS</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Developed CMS with role-based access control.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">GitHub Project</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <div class="card-header">
+                            <h5>Attendance Management System</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Created attendance tracking system using Django and SQLite.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Technologies: Django, SQLite</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <div class="card-header">
+                            <h5>Social Media Post Scheduler</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Automated social media post scheduling with YouTube API integration.</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">API Integration Project</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Bachelor of Arts</h5>
+                            <p class="text-muted mb-0">Maharaja Suhel Dev State University, Azamgarh</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Expected Graduation: 2026</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Diploma in Computer Science & Engineering</h5>
+                            <p class="text-muted mb-0">MMIT Bansi, Siddharth Nagar</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Completed: July 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Senior Secondary (12th)</h5>
+                            <p class="text-muted mb-0">SBIC Sohanpur, Deoria (UP Board)</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Completed: 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Contact Information</h5>
+                            <ul class="contact-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <strong>Location:</strong> New Delhi, Delhi
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    <strong>Phone:</strong> +91 7565974787
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <strong>Email:</strong> wishalkush9119@gmail.com
+                                </li>
+                                <li>
+                                    <i class="fab fa-linkedin"></i>
+                                    <strong>LinkedIn:</strong> linkedin.com/in/vishal-kumar-bhakt
+                                </li>
+                                <li>
+                                    <i class="fab fa-github"></i>
+                                    <strong>GitHub:</strong> github.com/vishalbhakt
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Send Me a Message</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="https://linkedin.com/in/vishal-kumar-bhakt" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/vishalbhakt" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:wishalkush9119@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2023 Vishal Kumar Bhakt. All rights reserved.</p>
+            <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by Vishal</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
