@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <style>
         :root {
             --primary-color: #3498db;
@@ -257,22 +258,51 @@
             border-bottom-color: rgba(255, 255, 255, 0.2);
         }
         
-        /* Skill Badges */
-        .skill-badge {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            padding: 0.5rem 1.2rem;
+        /* Tech Stack Badges */
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--primary-color);
+            padding: 0.4rem 0.8rem;
             border-radius: 50px;
-            margin: 0.3rem;
-            display: inline-block;
-            font-size: 0.9rem;
+            margin: 0.2rem;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
-            border: 1px solid #eee;
         }
         
-        .skill-badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .tech-badge i {
+            margin-right: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .tech-badge:hover {
+            background-color: rgba(52, 152, 219, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Skill Icons */
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .skill-card {
+            text-align: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Project Tech Stack */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
         
         /* Timeline */
@@ -641,52 +671,158 @@
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title text-center" data-aos="fade-up">Technical Skills</h2>
-            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">What I bring to the table</p>
+            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">Technologies I work with</p>
             
             <div class="row">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <!-- Languages -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card h-100">
-                        <div class="card-header">
+                        <div class="card-header text-center">
                             <h5><i class="fas fa-code me-2"></i>Languages</h5>
                         </div>
                         <div class="card-body">
-                            <span class="skill-badge">Python</span>
-                            <span class="skill-badge">C</span>
-                            <span class="skill-badge">JavaScript</span>
-                            <span class="skill-badge">HTML</span>
-                            <span class="skill-badge">CSS</span>
+                            <div class="row text-center">
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-python-plain colored"></i>
+                                        <div>Python</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-c-plain colored"></i>
+                                        <div>C</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-javascript-plain colored"></i>
+                                        <div>JavaScript</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-html5-plain colored"></i>
+                                        <div>HTML5</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-css3-plain colored"></i>
+                                        <div>CSS3</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                
+                <!-- Frameworks -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card h-100">
-                        <div class="card-header">
+                        <div class="card-header text-center">
                             <h5><i class="fas fa-cubes me-2"></i>Frameworks</h5>
                         </div>
                         <div class="card-body">
-                            <span class="skill-badge">Django</span>
-                            <span class="skill-badge">MERN Stack</span>
-                            <span class="skill-badge">Flask</span>
-                            <span class="skill-badge">React Native</span>
-                            <span class="skill-badge">Bootstrap</span>
-                            <span class="skill-badge">React</span>
-                            <span class="skill-badge">Tailwind</span>
+                            <div class="row text-center">
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-django-plain colored"></i>
+                                        <div>Django</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-react-original colored"></i>
+                                        <div>React</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-nodejs-plain colored"></i>
+                                        <div>Node.js</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-express-original colored"></i>
+                                        <div>Express</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-flask-original colored"></i>
+                                        <div>Flask</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-bootstrap-plain colored"></i>
+                                        <div>Bootstrap</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-tailwindcss-plain colored"></i>
+                                        <div>Tailwind</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                
+                <!-- Tools & Databases -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="card h-100">
-                        <div class="card-header">
-                            <h5><i class="fas fa-tools me-2"></i>Tools & Platforms</h5>
+                        <div class="card-header text-center">
+                            <h5><i class="fas fa-tools me-2"></i>Tools & Databases</h5>
                         </div>
                         <div class="card-body">
-                            <span class="skill-badge">SQL/MySQL</span>
-                            <span class="skill-badge">MongoDB</span>
-                            <span class="skill-badge">Postgres</span>
-                            <span class="skill-badge">Git/GitHub</span>
-                            <span class="skill-badge">AWS</span>
-                            <span class="skill-badge">PythonAnywhere</span>
-                            <span class="skill-badge">VS Code</span>
+                            <div class="row text-center">
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-mysql-plain colored"></i>
+                                        <div>MySQL</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-mongodb-plain colored"></i>
+                                        <div>MongoDB</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-postgresql-plain colored"></i>
+                                        <div>PostgreSQL</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-git-plain colored"></i>
+                                        <div>Git</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-github-original colored"></i>
+                                        <div>GitHub</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-aws-plain colored"></i>
+                                        <div>AWS</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-sm-3 mb-4">
+                                    <div class="skill-card">
+                                        <i class="devicon-vscode-plain colored"></i>
+                                        <div>VS Code</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -698,9 +834,10 @@
     <section id="projects" class="section bg-light">
         <div class="container">
             <h2 class="section-title text-center" data-aos="fade-up">Projects</h2>
-            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">Some of my recent work</p>
+            <p class="section-subtitle text-center" data-aos="fade-up" data-aos-delay="100">My recent work with tech stacks</p>
             
             <div class="row">
+                <!-- FriendlyParenting.in -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card project-card h-100">
                         <div class="card-body">
@@ -711,13 +848,25 @@
                                 <h5 class="mb-0">FriendlyParenting.in</h5>
                             </div>
                             <p>Built a course enrollment and counseling platform using React and Django.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">React</span>
-                                <span class="badge bg-primary bg-opacity-10 text-primary">Django</span>
+                            <div class="project-tech">
+                                <span class="tech-badge">
+                                    <i class="devicon-django-plain"></i> Django
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-react-original"></i> React
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-python-plain"></i> Python
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-postgresql-plain"></i> PostgreSQL
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- JAM (Jobs at Mail) -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card project-card h-100">
                         <div class="card-body">
@@ -728,13 +877,25 @@
                                 <h5 class="mb-0">JAM (Jobs at Mail)</h5>
                             </div>
                             <p>Interactive job portal with intelligent filtering built with Django and React.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">Django</span>
-                                <span class="badge bg-primary bg-opacity-10 text-primary">React</span>
+                            <div class="project-tech">
+                                <span class="tech-badge">
+                                    <i class="devicon-django-plain"></i> Django
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-react-original"></i> React
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-javascript-plain"></i> JavaScript
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-mongodb-plain"></i> MongoDB
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Blog Post CMS -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="card project-card h-100">
                         <div class="card-body">
@@ -745,12 +906,25 @@
                                 <h5 class="mb-0">Blog Post CMS</h5>
                             </div>
                             <p>Developed CMS with role-based access control.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-primary bg-opacity-10 text-primary">GitHub Project</span>
+                            <div class="project-tech">
+                                <span class="tech-badge">
+                                    <i class="devicon-django-plain"></i> Django
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-python-plain"></i> Python
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-sqlite-plain"></i> SQLite
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-html5-plain"></i> HTML5
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Attendance Management System -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card project-card h-100">
                         <div class="card-body">
@@ -761,13 +935,25 @@
                                 <h5 class="mb-0">Attendance Management System</h5>
                             </div>
                             <p>Created attendance tracking system using Django and SQLite.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-primary bg-opacity-10 text-primary me-2">Django</span>
-                                <span class="badge bg-primary bg-opacity-10 text-primary">SQLite</span>
+                            <div class="project-tech">
+                                <span class="tech-badge">
+                                    <i class="devicon-django-plain"></i> Django
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-python-plain"></i> Python
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-sqlite-plain"></i> SQLite
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-bootstrap-plain"></i> Bootstrap
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Social Media Post Scheduler -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card project-card h-100">
                         <div class="card-body">
@@ -778,8 +964,22 @@
                                 <h5 class="mb-0">Social Media Post Scheduler</h5>
                             </div>
                             <p>Automated social media post scheduling with YouTube API integration.</p>
-                            <div class="mt-auto">
-                                <span class="badge bg-primary bg-opacity-10 text-primary">API Integration</span>
+                            <div class="project-tech">
+                                <span class="tech-badge">
+                                    <i class="devicon-python-plain"></i> Python
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-flask-original"></i> Flask
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-javascript-plain"></i> JavaScript
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="devicon-mongodb-plain"></i> MongoDB
+                                </span>
+                                <span class="tech-badge">
+                                    <i class="fas fa-cloud"></i> YouTube API
+                                </span>
                             </div>
                         </div>
                     </div>
