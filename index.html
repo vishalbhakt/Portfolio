@@ -18,6 +18,20 @@
             --text-color: #4e4e4e;
             --text-light: #8e8e8e;
             --bg-light: #f8f9fa;
+            --bg-dark: #121212;
+            --text-dark: #f5f5f5;
+        }
+        
+        /* Dark mode variables */
+        .dark-mode {
+            --primary-color: #3a86ff;
+            --secondary-color: #f5f5f5;
+            --accent-color: #ff6b35;
+            --light-color: #1e1e1e;
+            --dark-color: #f5f5f5;
+            --text-color: #e0e0e0;
+            --text-light: #b0b0b0;
+            --bg-light: #121212;
         }
         
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -28,6 +42,11 @@
             color: var(--text-color);
             background-color: white;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        body.dark-mode {
+            background-color: var(--bg-dark);
         }
         
         /* Navigation */
@@ -38,16 +57,27 @@
             padding: 15px 0;
         }
         
+        .dark-mode .navbar {
+            background-color: var(--bg-dark);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+        }
+        
         .navbar.scrolled {
             background-color: white;
             padding: 10px 0;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
         
+        .dark-mode .navbar.scrolled {
+            background-color: var(--bg-dark);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
         .navbar-brand {
             font-weight: 700;
             color: var(--secondary-color);
             font-size: 1.8rem;
+            transition: color 0.3s ease;
         }
         
         .nav-link {
@@ -78,7 +108,7 @@
             width: 100%;
         }
         
-        /* Hero Section - Inspired by John Doe */
+        /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
@@ -122,10 +152,23 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         
-        /* Section Styling - Inspired by John Doe */
+        /* Section Styling */
         .section {
             padding: 100px 0;
             position: relative;
+            background-color: white;
+        }
+        
+        .dark-mode .section {
+            background-color: var(--bg-dark);
+        }
+        
+        .section.bg-light {
+            background-color: var(--bg-light);
+        }
+        
+        .dark-mode .section.bg-light {
+            background-color: #1a1a1a;
         }
         
         .section-title {
@@ -155,12 +198,18 @@
             font-size: 1.2rem;
         }
         
-        /* About Section - Inspired by John Doe */
+        /* About Section */
         .about-content {
             padding: 40px;
             background: white;
             border-radius: 5px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .about-content {
+            background-color: var(--light-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .about-image {
@@ -178,6 +227,7 @@
         .skill-name {
             margin-bottom: 10px;
             font-weight: 600;
+            color: var(--secondary-color);
         }
         
         .progress {
@@ -190,7 +240,7 @@
             background-color: var(--primary-color);
         }
         
-        /* Experience Section - Inspired by John Doe */
+        /* Experience Section */
         .timeline {
             position: relative;
             padding-left: 50px;
@@ -223,13 +273,17 @@
             border: 4px solid var(--primary-color);
         }
         
+        .dark-mode .timeline-item::before {
+            background: var(--bg-dark);
+        }
+        
         .timeline-date {
             color: var(--primary-color);
             font-weight: 600;
             margin-bottom: 5px;
         }
         
-        /* Skills Section - Inspired by John Doe */
+        /* Skills Section */
         .skills-box {
             background: white;
             padding: 30px;
@@ -237,6 +291,11 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
             transition: all 0.3s ease;
+        }
+        
+        .dark-mode .skills-box {
+            background-color: var(--light-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .skills-box:hover {
@@ -250,7 +309,7 @@
             color: var(--primary-color);
         }
         
-        /* Projects Section - Inspired by John Doe */
+        /* Projects Section */
         .project-card {
             background: white;
             border-radius: 5px;
@@ -258,6 +317,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             margin-bottom: 30px;
+            cursor: pointer;
+        }
+        
+        .dark-mode .project-card {
+            background-color: var(--light-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .project-card:hover {
@@ -294,18 +359,19 @@
             transition: all 0.3s ease;
         }
         
-        .tech-badge i {
-            margin-right: 5px;
-            font-size: 1rem;
-        }
-        
-        /* Contact Section - Inspired by John Doe */
+        /* Contact Section */
         .contact-info {
             background: white;
             padding: 30px;
             border-radius: 5px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .contact-info {
+            background-color: var(--light-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .contact-item {
@@ -327,7 +393,54 @@
             flex-shrink: 0;
         }
         
-        /* Footer - Inspired by John Doe */
+        /* Form Styles */
+        .form-control {
+            background-color: white;
+            color: var(--text-color);
+            border: 1px solid #ced4da;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .form-control {
+            background-color: #2d2d2d;
+            color: var(--text-dark);
+            border-color: #444;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 120, 255, 0.25);
+        }
+        
+        .form-label {
+            color: var(--secondary-color);
+        }
+        
+        /* Modal Styles */
+        .modal-content {
+            background-color: white;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .modal-content {
+            background-color: var(--light-color);
+            color: var(--text-dark);
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .dark-mode .modal-header {
+            border-bottom-color: #444;
+        }
+        
+        .modal-title {
+            color: var(--primary-color);
+        }
+        
+        /* Footer */
         footer {
             background-color: var(--secondary-color);
             color: white;
@@ -352,6 +465,64 @@
             transform: translateY(-5px);
         }
         
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover i {
+            color: var(--primary-color);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: white;
+            z-index: 1050;
+            padding: 80px 20px 20px;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode .mobile-menu {
+            background-color: var(--bg-dark);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 10px 0;
+            margin: 0;
+            color: var(--secondary-color) !important;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            cursor: pointer;
+        }
+        
         /* Responsive Adjustments */
         @media (max-width: 992px) {
             .hero h1 {
@@ -360,6 +531,14 @@
             
             .section-title {
                 font-size: 2.2rem;
+            }
+            
+            .navbar-nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block !important;
             }
         }
         
@@ -402,6 +581,59 @@
             .about-image {
                 height: 300px;
             }
+            
+            .contact-form {
+                padding: 15px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1100;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        /* Error Messages */
+        .error-message {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .is-invalid {
+            border-color: var(--accent-color) !important;
         }
     </style>
 </head>
@@ -434,12 +666,43 @@
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <i class="fas fa-times mobile-menu-close" id="mobileMenuClose"></i>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+        <div class="theme-toggle mt-4">
+            <i class="fas fa-moon"></i> <span>Dark Mode</span>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container hero-content">
             <img src="https://github.com/vishalbhakt/Portfolio/blob/main/IMG-20250426-WA0101.jpg?raw=true" alt="Vishal Kumar Bhakt" class="profile-image">
             <h1 data-aos="fade-up">Vishal Kumar Bhakt</h1>
@@ -688,8 +951,8 @@
             
             <div class="row">
                 <!-- FriendlyParenting.in -->
-                <!-- <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card" data-project="1">
                         <img src="https://via.placeholder.com/600x400?text=FriendlyParenting" class="project-img" alt="FriendlyParenting.in">
                         <div class="project-body">
                             <h5 class="project-title">FriendlyParenting.in</h5>
@@ -705,14 +968,15 @@
                                     <i class="devicon-python-plain"></i> Python
                                 </span>
                             </div>
+                            <button class="btn btn-primary mt-3">View Details</button>
                         </div>
                     </div>
-                </div>  -->
+                </div>
                 
                 <!-- JAM (Jobs at Mail) -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-card">
-                        <!-- <img src="https://via.placeholder.com/600x400?text=Jobs+At+Mail" class="project-img" alt="JAM (Jobs at Mail)"> -->
+                    <div class="project-card" data-project="2">
+                        <img src="https://via.placeholder.com/600x400?text=Jobs+At+Mail" class="project-img" alt="JAM (Jobs at Mail)">
                         <div class="project-body">
                             <h5 class="project-title">JAM (Jobs at Mail)</h5>
                             <p>Interactive job portal with intelligent filtering built with Django and React.</p>
@@ -727,14 +991,15 @@
                                     <i class="devicon-mongodb-plain"></i> MongoDB
                                 </span>
                             </div>
+                            <button class="btn btn-primary mt-3">View Details</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Blog Post CMS -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-card">
-                        <!-- <img src="https://via.placeholder.com/600x400?text=Blog+CMS" class="project-img" alt="Blog Post CMS"> -->
+                    <div class="project-card" data-project="3">
+                        <img src="https://via.placeholder.com/600x400?text=Blog+CMS" class="project-img" alt="Blog Post CMS">
                         <div class="project-body">
                             <h5 class="project-title">Blog Post CMS</h5>
                             <p>Developed CMS with role-based access control.</p>
@@ -749,6 +1014,7 @@
                                     <i class="devicon-sqlite-plain"></i> SQLite
                                 </span>
                             </div>
+                            <button class="btn btn-primary mt-3">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -858,15 +1124,17 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="mb-4">Send Me a Message</h3>
-                            <form>
+                            <form id="contactForm">
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" class="form-control" id="name" required>
+                                        <div class="error-message" id="nameError"></div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" required>
+                                        <div class="error-message" id="emailError"></div>
                                     </div>
                                 </div>
                                 <div class="mb-4">
@@ -876,6 +1144,7 @@
                                 <div class="mb-4">
                                     <label for="message" class="form-label">Message</label>
                                     <textarea class="form-control" id="message" rows="5" required></textarea>
+                                    <div class="error-message" id="messageError"></div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send Message</button>
                             </form>
@@ -898,6 +1167,33 @@
             <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by Vishal</p>
         </div>
     </footer>
+
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalProjectTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="Project Image" class="img-fluid mb-4" id="modalProjectImage">
+                    <p id="modalProjectDescription"></p>
+                    <h6 class="mt-4">Technologies Used:</h6>
+                    <div id="modalProjectTech"></div>
+                    <div class="mt-3">
+                        <a href="#" class="btn btn-primary me-2" id="modalProjectLink" target="_blank">View Project</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <p>Thank you for your message! I'll get back to you soon.</p>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -924,21 +1220,240 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
         
-        // Form submission (placeholder)
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Form submission would be handled here in a real implementation.');
-                form.reset();
-            });
+        // Dark mode toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+            
+            // Save preference to localStorage
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+        
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
         }
+        
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        
+        navbarToggler.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+        });
+        
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Project modal functionality
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
+        
+        // Project data for modal
+        const projectsData = {
+            1: {
+                title: 'FriendlyParenting.in',
+                description: 'Built a comprehensive course enrollment and counseling platform using React for the frontend and Django for the backend. The platform features user authentication, course management, payment integration, and a counseling scheduling system. Implemented responsive design principles to ensure optimal viewing across all devices.',
+                technologies: ['Django', 'React', 'Python', 'PostgreSQL', 'REST API'],
+                link: '#',
+                image: 'https://via.placeholder.com/800x500?text=FriendlyParenting'
+            },
+            2: {
+                title: 'JAM (Jobs at Mail)',
+                description: 'Developed an interactive job portal with advanced filtering capabilities. The application allows users to search for jobs based on various criteria and receive email notifications for new postings. Built with Django for the backend and React for the frontend, with MongoDB for flexible data storage. Implemented user authentication and authorization systems.',
+                technologies: ['Django', 'React', 'MongoDB', 'Node.js', 'Express'],
+                link: '#',
+                image: 'https://via.placeholder.com/800x500?text=Jobs+At+Mail'
+            },
+            3: {
+                title: 'Blog Post CMS',
+                description: 'Created a content management system with role-based access control. The system allows administrators to manage users, content creators to publish articles, and readers to comment on posts. Implemented a rich text editor, image upload functionality, and search features. The backend was built with Django and the frontend with Bootstrap for a responsive interface.',
+                technologies: ['Django', 'Python', 'SQLite', 'Bootstrap', 'jQuery'],
+                link: '#',
+                image: 'https://via.placeholder.com/800x500?text=Blog+CMS'
+            }
+        };
+        
+        projectCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project');
+                const project = projectsData[projectId];
+                
+                if (project) {
+                    document.getElementById('modalProjectTitle').textContent = project.title;
+                    document.getElementById('modalProjectDescription').textContent = project.description;
+                    document.getElementById('modalProjectImage').src = project.image;
+                    document.getElementById('modalProjectLink').href = project.link;
+                    
+                    const techContainer = document.getElementById('modalProjectTech');
+                    techContainer.innerHTML = '';
+                    
+                    project.technologies.forEach(tech => {
+                        const badge = document.createElement('span');
+                        badge.className = 'badge bg-primary me-2 mb-2';
+                        badge.textContent = tech;
+                        techContainer.appendChild(badge);
+                    });
+                    
+                    projectModal.show();
+                }
+            });
+        });
+        
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const successMessage = document.getElementById('successMessage');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // Name validation
+            if (nameInput.value.trim() === '') {
+                nameError.textContent = 'Name is required';
+                nameError.style.display = 'block';
+                nameInput.classList.add('is-invalid');
+                isValid = false;
+            } else if (nameInput.value.trim().length < 2) {
+                nameError.textContent = 'Name must be at least 2 characters';
+                nameError.style.display = 'block';
+                nameInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+                nameInput.classList.remove('is-invalid');
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailInput.value.trim() === '') {
+                emailError.textContent = 'Email is required';
+                emailError.style.display = 'block';
+                emailInput.classList.add('is-invalid');
+                isValid = false;
+            } else if (!emailRegex.test(emailInput.value)) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.style.display = 'block';
+                emailInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+                emailInput.classList.remove('is-invalid');
+            }
+            
+            // Message validation
+            if (messageInput.value.trim() === '') {
+                messageError.textContent = 'Message is required';
+                messageError.style.display = 'block';
+                messageInput.classList.add('is-invalid');
+                isValid = false;
+            } else if (messageInput.value.trim().length < 10) {
+                messageError.textContent = 'Message must be at least 10 characters';
+                messageError.style.display = 'block';
+                messageInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                messageError.style.display = 'none';
+                messageInput.classList.remove('is-invalid');
+            }
+            
+            // If form is valid, show success message
+            if (isValid) {
+                successMessage.classList.add('show');
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 3000);
+            }
+        });
+        
+        // Input validation on blur
+        nameInput.addEventListener('blur', function() {
+            if (this.value.trim() === '') {
+                nameError.textContent = 'Name is required';
+                nameError.style.display = 'block';
+                this.classList.add('is-invalid');
+            } else if (this.value.trim().length < 2) {
+                nameError.textContent = 'Name must be at least 2 characters';
+                nameError.style.display = 'block';
+                this.classList.add('is-invalid');
+            } else {
+                nameError.style.display = 'none';
+                this.classList.remove('is-invalid');
+            }
+        });
+        
+        emailInput.addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value.trim() === '') {
+                emailError.textContent = 'Email is required';
+                emailError.style.display = 'block';
+                this.classList.add('is-invalid');
+            } else if (!emailRegex.test(this.value)) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.style.display = 'block';
+                this.classList.add('is-invalid');
+            } else {
+                emailError.style.display = 'none';
+                this.classList.remove('is-invalid');
+            }
+        });
+        
+        messageInput.addEventListener('blur', function() {
+            if (this.value.trim() === '') {
+                messageError.textContent = 'Message is required';
+                messageError.style.display = 'block';
+                this.classList.add('is-invalid');
+            } else if (this.value.trim().length < 10) {
+                messageError.textContent = 'Message must be at least 10 characters';
+                messageError.style.display = 'block';
+                this.classList.add('is-invalid');
+            } else {
+                messageError.style.display = 'none';
+                this.classList.remove('is-invalid');
+            }
+        });
     </script>
 </body>
 </html>
